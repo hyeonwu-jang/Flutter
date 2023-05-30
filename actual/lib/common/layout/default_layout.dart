@@ -6,13 +6,12 @@ class DefaultLayout extends StatelessWidget {
   final String? title;
   final BottomNavigationBar? bottomNavigationBar;
 
-  const DefaultLayout(
-      {required this.child,
-      this.backgroundColor,
-      this.title,
-      this.bottomNavigationBar,
-      Key? key})
-      : super(key: key);
+  const DefaultLayout({
+    required this.child,
+    this.backgroundColor,
+    this.title,
+    this.bottomNavigationBar,
+    Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
