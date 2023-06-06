@@ -1,25 +1,38 @@
+import 'package:actual/common/const/data.dart';
+import 'package:actual/common/dio/dio.dart';
 import 'package:actual/common/model/cursor_pagination_model.dart';
+import 'package:actual/common/model/pagination_params.dart';
 import 'package:actual/restaurant/model/restaurant_detail_model.dart';
 import 'package:actual/restaurant/model/restaurant_model.dart';
 import 'package:dio/dio.dart' hide Headers;
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:retrofit/http.dart';
 
 part 'restaurant_repository.g.dart';
 
+final restaurantRepositoryProvider = Provider<RestaurantRepository>((ref) {
+  final dio = ref.watch(dioProvider);
+
+  final repository = RestaurantRepository(dio, baseUrl: 'http://$ip/restaurant');
+
+  return repository;
+});
 
 // factory 는 =을 통해 메소드의 바디를 지정할 수 있다.
 @RestApi()
 abstract class RestaurantRepository {
   // http://$ip/restaurant
-  factory RestaurantRepository(Dio dio, {String baseUrl})
-   = _RestaurantRepository;
+  factory RestaurantRepository(Dio dio, {String baseUrl}) =
+      _RestaurantRepository;
 
   // http://$ip/restaurant/
   @GET('/')
   @Headers({
     'accessToken': 'true',
   })
-  Future<CursorPagination<RestaurantModel>> paginate();
+  Future<CursorPagination<RestaurantModel>> paginate({
+    @Queries() PaginationParams? paginationParams = const PaginationParams(),
+  });
 
   // http://$ip/restaurant/:id/
   // @Path() 어노테이션을 사용하면 @GET의 ({id})라는 값을 가져온다.
@@ -30,5 +43,5 @@ abstract class RestaurantRepository {
   })
   Future<RestaurantDetailModel> getRestaurantDetail({
     @Path() required String id,
-});
+  });
 }

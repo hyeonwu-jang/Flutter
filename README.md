@@ -18,5 +18,10 @@
  * retrofit : 제너릭 사용하는 과정 이해하기
  * dio interceptor : 요청, 에러, 응답 등의 상황에서 토큰을 핸들링함.
  * ? genericArgumentFactories, T Function(Object? json) fromJsonT
-##### 섹션7 - Riverpod을 이용한 상태관리
+##### 섹션7 - Riverpod을 이용한 상태관리 23.06.07 완료
  * 1 - riverpod (메인 최상위 루트에서 ProviderScpoe를 활용해 상태관리함), 스크린이 변경되어도 watch를 하고 있다면 동일한 데이터를 가리킴
+ * family_modifier는 provider 생성 시 생성 순간에 어떤 변수를 입력하고 provider 안의 로직을 변경할 때 사용(캐싱)
+ * autoDisposeModifier는 자동으로 캐시 삭제(처음부터 다시 생성)
+##### 섹션8 - Riverpod v2 추가 강의 23.06.07 완료
+ * Provider 코드 자동생성 지원 (함수형태라 직관적임)
+##### 섹션9 - 상태관리 프로젝트에 적용하기 23.06.07 완료
