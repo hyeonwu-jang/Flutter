@@ -5,6 +5,8 @@ import 'package:actual/restaurant/model/restaurant_model.dart';
 import 'package:actual/restaurant/repository/restaurant_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+// Provider.family - 동적으로 종속성 부여. family<반환타입, 매개변수 타입>((ref, 매개변수) { });
+// 매개변수에 따라서 Provider에 동적으로 종속성이 부여되어 공통된 로직을 재사용 할 수 있음.
 final restaurantDetailProvider =
     Provider.family<RestaurantModel?, String>((ref, id) {
   final state = ref.watch(restaurantProvider);

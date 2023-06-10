@@ -25,7 +25,7 @@ class CustomInterceptor extends Interceptor {
 
   // 1) 요청을 보낼 때
   // 요청이 보내질 때마다
-  // 만약 요청의 Header에 accessToken: ture라는 값이 있다면
+  // 만약 요청의 Header에 accessToken: true라는 값이 있다면
   // stroage에서 실제 토큰을 가져와서 'authorization': 'Bearer $token'으로 헤더를 변경한다.
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {

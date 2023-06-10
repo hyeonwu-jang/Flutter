@@ -4,8 +4,10 @@ import 'package:actual/common/model/pagination_params.dart';
 import 'package:actual/common/repository/base_pagination_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class PaginationProvider<
-T extends IModelWithId,
+// PaginationProvider는 제네릭 타입을 이용하여 모델과 레파지토리를 동적으로 의존관계를 맺음
+// state의 상태값을 구분하기 위해 제네릭 타입으로 추상클래스인 CursorPaginationBase 사용 (state is ~)
+class PaginationProvider
+<T extends IModelWithId,
 U extends IBasePaginationRepository<T>> extends StateNotifier<CursorPaginationBase> {
   final U repository;
 

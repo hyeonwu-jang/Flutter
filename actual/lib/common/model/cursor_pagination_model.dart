@@ -13,7 +13,6 @@ class CursorPaginationError extends CursorPaginationBase {
   });
 }
 
-
 class CursorPaginationLoading extends CursorPaginationBase {}
 
 @JsonSerializable(
@@ -31,12 +30,16 @@ class CursorPagination<T> extends CursorPaginationBase {
   CursorPagination copyWith({
     CursorPaginationMeta? meta,
     List<T>? data,
-}) {
-    return CursorPagination(meta: meta ?? this.meta, data: data ?? this.data);
+  }) {
+    return CursorPagination<T>(
+      meta: meta ?? this.meta,
+      data: data ?? this.data,
+    );
   }
-  
-  factory CursorPagination.fromJson(Map<String, dynamic> json, T Function(Object? json) fromJsonT)
-  => _$CursorPaginationFromJson(json, fromJsonT);
+
+  factory CursorPagination.fromJson(
+          Map<String, dynamic> json, T Function(Object? json) fromJsonT) =>
+      _$CursorPaginationFromJson(json, fromJsonT);
 }
 
 @JsonSerializable()
@@ -52,15 +55,15 @@ class CursorPaginationMeta {
   CursorPaginationMeta copyWith({
     int? count,
     bool? hasMore,
-}) {
+  }) {
     return CursorPaginationMeta(
-        count: count ?? this.count,
-        hasMore: hasMore ?? this.hasMore,
+      count: count ?? this.count,
+      hasMore: hasMore ?? this.hasMore,
     );
   }
 
-  factory CursorPaginationMeta.fromJson(Map<String, dynamic> json)
-  => _$CursorPaginationMetaFromJson(json);
+  factory CursorPaginationMeta.fromJson(Map<String, dynamic> json) =>
+      _$CursorPaginationMetaFromJson(json);
 }
 
 // 새로고침할때
