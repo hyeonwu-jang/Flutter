@@ -18,24 +18,25 @@
  * retrofit : 제너릭 사용하는 과정 이해하기
  * dio interceptor : 요청, 에러, 응답 등의 상황에서 토큰을 핸들링함.
  * ? genericArgumentFactories, T Function(Object? json) fromJsonT
-##### 섹션7 - Riverpod을 이용한 상태관리 23.06.07 완료
+##### 섹션7 - Riverpod을 이용한 상태관리 / 23.06.07 완료
  * 1 - riverpod (메인 최상위 루트에서 ProviderScpoe를 활용해 상태관리함), 스크린이 변경되어도 watch를 하고 있다면 동일한 데이터를 가리킴
  * family_modifier는 provider 생성 시 생성 순간에 어떤 변수를 입력하고 provider 안의 로직을 변경할 때 사용(캐싱)
  * autoDisposeModifier는 자동으로 캐시 삭제(처음부터 다시 생성)
-##### 섹션8 - Riverpod v2 추가 강의 23.06.07 완료
+##### 섹션8 - Riverpod v2 추가 강의 / 23.06.07 완료
  * Provider 코드 자동생성 지원 (함수형태라 직관적임)
 ##### 섹션9 - 상태관리 프로젝트에 적용하기 23.06.07 완료
-##### 섹션10 - 캐시관리 및 공유하기 23.06.07 완료
+##### 섹션10 - 캐시관리 및 공유하기 / 23.06.07 완료
  * 리스트에서 상세보기 들어갈 때 리스트에 있는 데이터 캐싱하기
  * 리스트에서의 사진을 상세 화면으로 캐싱하여 가져오는 Hero, 로딩을 세련되게 표출하는 Skeletons
-##### 섹션11 - Pagination 일반화하기 23.06.10 완료
+##### 섹션11 - Pagination 일반화하기 / 23.06.10 완료
  * RestAPI 클래스 생성하는 부분 복습하기
  * dart에서는 제네릭 안에서 implements 사용 불가(인터페이스이더라도) extends 사용해야함
-##### 섹션12 - 고급 캐시관리
+##### 섹션12 - 고급 캐시관리 / 23.06.11 완료
  * OOP를 이용한 일반화.. 리스트 뷰 커스터마이징.. 
-##### 섹션13 - [Go Router v7] GoRouter 이론
+##### 섹션13 - [Go Router v7] GoRouter 이론 / 23.06.12 완료
  * GoRouter는 경로를 지정한 여러개의 화면으로 이동을 할 수 있으며, GoRouterState를 통해 현재 Router의 location(경로)와 같은 상태도 가져옴
  * push 와 go의 차이를 분명하게 기억하기. go는 router에 등록한 루트순으로 동작하며, push는 router에 등록한 루트가 아닌 실행되는 화면을 기준으로 동작함.
  * pop을 통해 뒤로가기를 하며, 뒤로가기를 하면서 파라미터를 이용하여 값을 반환해줄 수도 있음. (뒤로가기하여 열린 화면에서 활용하려는 의도)
  * ShellRouter - 하나의 화면에서 네비게이션탭바와 같이 여러가지 라우터를 활용하려는 경우 사용. 상위 위젯을 중심으로 index를 이용해서 child 라우터를 지정.
  * parameter, query, redirect 등 url의 파라미터를 이용한 로직도 구현 가능.
+##### 섹션 15 - GoRouter 프로젝트에 적용하기

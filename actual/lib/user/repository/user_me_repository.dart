@@ -1,0 +1,29 @@
+import 'package:actual/common/const/data.dart';
+import 'package:actual/common/dio/dio.dart';
+import 'package:actual/user/model/user_model.dart';
+import 'package:dio/dio.dart' hide Headers;
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:retrofit/http.dart';
+
+part 'user_me_repository.g.dart';
+
+final userMeRepositoryProvider = Provider<UserMeRepository>(
+  (ref) {
+    final dio = ref.watch(dioProvider);
+
+    return UserMeRepository(dio, baseUrl: 'http://$ip/user/me');
+  },
+);
+
+// http://$ip/user/me
+@RestApi()
+abstract class UserMeRepository {
+  factory UserMeRepository(Dio dio, {String baseUrl}) = _UserMeRepository;
+
+  // accesToken이 있는 상태로 http://$ip/user/me로 요청을 보낼 경우 UserModel을 반환하는 getMe 메소드 실행.
+  @GET('/')
+  @Headers({
+    'accessToken': 'true',
+  })
+  Future<UserModel> getMe();
+}
