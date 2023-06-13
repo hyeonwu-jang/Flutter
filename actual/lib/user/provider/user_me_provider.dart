@@ -43,10 +43,9 @@ class UserMeStateNotifier extends StateNotifier<UserModelBase?> {
       state = null;
       return;
     }
+      final resp = await repository.getMe();
 
-    final resp = await repository.getMe();
-
-    state = resp;
+      state = resp;
   }
 
   // 로그인 에러가 발생할 가능성도 있기 떄문에 UserModelBase를 반환함.

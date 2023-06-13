@@ -35,6 +35,7 @@ class AuthProvider extends ChangeNotifier {
           routes: [
             GoRoute(
               path: 'restaurant/:rid',
+              name: RestaurantDetailScreen.routeName,
               builder: (_, state) => RestaurantDetailScreen(
                 id: state.pathParameters['rid']!,
               ),
@@ -52,6 +53,10 @@ class AuthProvider extends ChangeNotifier {
           builder: (_, __) => LoginScreen(),
         ),
       ];
+
+  void logout() {
+    ref.read(userMeProvider.notifier).logout();
+  }
 
   // SplashScreen
   // 앱을 처음 시작했을 때
