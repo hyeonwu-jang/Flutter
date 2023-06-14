@@ -19,7 +19,7 @@ class ProductScreen extends StatelessWidget {
               'rid': model.restaurant.id,
             });
           },
-          child: ProductCard.formProductModel(
+          child: ProductCard.fromProductModel(
             model: model,
           ),
         );

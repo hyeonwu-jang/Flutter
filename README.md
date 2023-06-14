@@ -35,8 +35,10 @@
  * OOP를 이용한 일반화.. 리스트 뷰 커스터마이징.. 
 ##### 섹션13 - [Go Router v7] GoRouter 이론 / 23.06.12 완료
  * GoRouter는 경로를 지정한 여러개의 화면으로 이동을 할 수 있으며, GoRouterState를 통해 현재 Router의 location(경로)와 같은 상태도 가져옴
- * push 와 go의 차이를 분명하게 기억하기. go는 router에 등록한 루트순으로 동작하며, push는 router에 등록한 루트가 아닌 실행되는 화면을 기준으로 동작함.
+ * push 와 go의 차이를 분명하게 기억하기. go는 router에 nesting한 루트순으로 동작하며, push는 router에 등록한 루트가 아닌 실행되는 화면을 기준으로 동작함.
  * pop을 통해 뒤로가기를 하며, 뒤로가기를 하면서 파라미터를 이용하여 값을 반환해줄 수도 있음. (뒤로가기하여 열린 화면에서 활용하려는 의도)
  * ShellRouter - 하나의 화면에서 네비게이션탭바와 같이 여러가지 라우터를 활용하려는 경우 사용. 상위 위젯을 중심으로 index를 이용해서 child 라우터를 지정.
  * parameter, query, redirect 등 url의 파라미터를 이용한 로직도 구현 가능.
-##### 섹션 15 - GoRouter 프로젝트에 적용하기
+##### 섹션 15 - GoRouter 프로젝트에 적용하기 23.06.14 완료
+##### 섹션 16 - Optimistic Response
+ * 긍정적 응답 - 응답이 성공할 거라고 가정하고 UI의 상태를 먼저 업데이트함.
