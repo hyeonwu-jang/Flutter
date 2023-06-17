@@ -2,19 +2,43 @@ import 'package:actual/common/model/cursor_pagination_model.dart';
 import 'package:actual/common/model/model_with_id.dart';
 import 'package:actual/common/model/pagination_params.dart';
 import 'package:actual/common/repository/base_pagination_repository.dart';
+import 'package:debounce_throttle/debounce_throttle.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+class _PaginationInfo {
+  final int fetchCount;
+  final bool fetchMore;
+  final bool forceRefetch;
+
+  _PaginationInfo({
+    this.fetchCount = 20,
+    this.fetchMore = false,
+    this.forceRefetch = false,
+  });
+}
 
 // PaginationProvider는 제네릭 타입을 이용하여 모델과 레파지토리를 동적으로 의존관계를 맺음
 // state의 상태값을 구분하기 위해 제네릭 타입으로 추상클래스인 CursorPaginationBase 사용 (state is ~)
-class PaginationProvider
-<T extends IModelWithId,
-U extends IBasePaginationRepository<T>> extends StateNotifier<CursorPaginationBase> {
+class PaginationProvider<T extends IModelWithId,
+        U extends IBasePaginationRepository<T>>
+    extends StateNotifier<CursorPaginationBase> {
   final U repository;
+  final paginationThrottle = Throttle(
+    Duration(seconds: 3),
+    initialValue: _PaginationInfo(),
+    checkEquality: false, // 실행할 때마다 함수가 같으면 실행하지 않는 기능
+  );
 
   PaginationProvider({
     required this.repository,
   }) : super(CursorPaginationLoading()) {
     paginate();
+
+    paginationThrottle.values.listen(
+      (state) {
+        _throttlePagination(state);
+      },
+    );
   }
 
   Future<void> paginate({
@@ -27,6 +51,18 @@ U extends IBasePaginationRepository<T>> extends StateNotifier<CursorPaginationBa
     // true - CursorPaginationLoading()
     bool forceRefetch = false,
   }) async {
+    paginationThrottle.setValue(_PaginationInfo(
+      fetchMore: fetchMore,
+      fetchCount: fetchCount,
+      forceRefetch: forceRefetch,
+    ));
+  }
+
+  _throttlePagination(_PaginationInfo info) async {
+    final fetchCount = info.fetchCount;
+    final fetchMore = info.fetchMore;
+    final forceRefetch = info.forceRefetch;
+
     try {
       // 5가지 가능성
       // State의 상태
@@ -117,5 +153,4 @@ U extends IBasePaginationRepository<T>> extends StateNotifier<CursorPaginationBa
       state = CursorPaginationError(message: '데이터를 가져오지 못했습니다.');
     }
   }
-
 }
