@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ordinary_age/component/birth_text_form.dart';
+import 'package:ordinary_age/age_calculator/view/age_calculate_screen.dart';
+import 'package:ordinary_age/common/layout/default_layout.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -13,11 +14,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('만 나이 계산기'),
-      ),
-      body: BirthTextForm(),
+    return DefaultLayout(
+      title: '만 나이 계산기',
+      child: AgeCalculateScreen(),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: index,
         onTap: (value) {
@@ -42,4 +41,5 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
 }

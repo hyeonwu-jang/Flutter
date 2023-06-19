@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ordinary_age/screen/home_screen.dart';
+import 'package:ordinary_age/common/view/home_screen.dart';
 
 void main() {
   runApp(_App());
@@ -11,9 +11,11 @@ class _App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '만나이 계산기',
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
+      theme: ThemeData(
+        fontFamily: 'PoorStory',
+      ),
     );
   }
 }
