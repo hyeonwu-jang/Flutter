@@ -99,33 +99,32 @@ class _DateTranslateText extends StatelessWidget {
   }) : super(key: key);
 
   String translateAge(String? birth, DateTime todayDate) {
-    if (birth?.length != 8) {
+    if (birth?.length != 8 || birth == null) {
       return '생년월일을 확인해주세요 : (';
     }
 
-    DateTime dtBirth = DateTime.parse(birth!);
+    int birthYear = int.parse(birth.substring(0,4));
+    int birthMonth = int.parse(birth.substring(4,6));
+    int birthDay = int.parse(birth.substring(6,8));
+
+    if
+    (
+        birthYear <= 1900 || birthYear > todayDate.year ||
+        birthMonth <= 0 || birthMonth > 12 ||
+        birthDay <= 0 || birthDay > 31
+    ) {
+      return '생년월일을 확인해주세요 : (';
+    }
+
+    DateTime dtBirth = DateTime.parse(birth);
     int age;
     int bonusAge = 1;
 
     age = todayDate.year - dtBirth.year;
 
     if(dtBirth.month == todayDate.month && dtBirth.day == todayDate.day) {
-      return '생일을 진심으로 축하드립니다!!! \n오늘부터 $bonusAge살 젊어진 $age살이시네요 : )';
+      return '생일을 진심으로 축하드립니다!!! \n라떼보다 $bonusAge살 젊어진 $age살이시네요 : )';
     }
-
-    // DateTime 보정 막기..
-    if
-    (
-      dtBirth.year <= 1900 || dtBirth.year > todayDate.year ||
-      dtBirth.month <= 0 || dtBirth.month > 12 ||
-      dtBirth.day <= 0 || dtBirth.day > 31
-    ) {
-      return '생년월일을 확인해주세요 : (';
-    }
-
-    print(dtBirth.year);
-    print(dtBirth.month);
-    print(dtBirth.day);
 
     // 생일이 안지났으면 -1, 지났으면 그대로
     if (dtBirth.month <= todayDate.month && dtBirth.day <= todayDate.day) {
@@ -135,13 +134,13 @@ class _DateTranslateText extends StatelessWidget {
 
     if(age < 0) {
       age = 0;
-      return '${todayDate.year}년 당신의 나이는 $age살 입니다.';
+      return '${todayDate.year}년 현재 당신의 나이는 $age살 입니다.';
 
     } else if(age > 130) {
       return '생년월일을 확인해주세요 : (';
     }
 
-    return '${todayDate.year}년 당신의 나이는 $age살 입니다.\n축하드립니다. ${bonusAge == 2? '$bonusAge살이나 젊어지셨네요 > <' : '$bonusAge살 젊어지셨네요 : )'}';
+    return '${todayDate.year}년 현재 당신의 나이는 $age살 입니다.\n축하드립니다. 라떼보다 ${bonusAge == 2? '$bonusAge살이나 젊어지셨네요 > <' : '$bonusAge살 젊어지셨네요 : )'}';
   }
 
   @override
@@ -152,7 +151,7 @@ class _DateTranslateText extends StatelessWidget {
         child: Text(
           translateAge(birth, todayDate),
           style: TextStyle(
-            fontSize: 22.0,
+            fontSize: 18.0,
           ),
         ),
       ),
