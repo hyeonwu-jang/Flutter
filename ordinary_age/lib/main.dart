@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ordinary_age/common/view/home_screen.dart';
+import 'package:ordinary_age/common/view/root_screen.dart';
 
 void main() {
   runApp(_App());
@@ -12,7 +12,7 @@ class _App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: RootScreen(),
       theme: ThemeData(
         fontFamily: 'PoorStory',
       ),

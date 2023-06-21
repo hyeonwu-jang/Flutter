@@ -99,20 +99,22 @@ class _DateTranslateText extends StatelessWidget {
   }) : super(key: key);
 
   String translateAge(String? birth, DateTime todayDate) {
-    if (birth?.length != 8 || birth == null) {
+
+    // 8글자 미만
+    if (birth!.length < 8) {
       return '생년월일을 확인해주세요 : (';
     }
 
-    int birthYear = int.parse(birth.substring(0,4));
-    int birthMonth = int.parse(birth.substring(4,6));
-    int birthDay = int.parse(birth.substring(6,8));
+    int birthYear = int.parse(birth.substring(0, 4));
+    int birthMonth = int.parse(birth.substring(4, 6));
+    int birthDay = int.parse(birth.substring(6, 8));
 
-    if
-    (
-        birthYear <= 1900 || birthYear > todayDate.year ||
-        birthMonth <= 0 || birthMonth > 12 ||
-        birthDay <= 0 || birthDay > 31
-    ) {
+    if (birthYear <= 1900 ||
+        birthYear > todayDate.year ||
+        birthMonth <= 0 ||
+        birthMonth > 12 ||
+        birthDay <= 0 ||
+        birthDay > 31) {
       return '생년월일을 확인해주세요 : (';
     }
 
@@ -122,25 +124,20 @@ class _DateTranslateText extends StatelessWidget {
 
     age = todayDate.year - dtBirth.year;
 
-    if(dtBirth.month == todayDate.month && dtBirth.day == todayDate.day) {
-      return '생일을 진심으로 축하드립니다!!! \n라떼보다 $bonusAge살 젊어진 $age살이시네요 : )';
+    if (dtBirth.month == todayDate.month && dtBirth.day == todayDate.day) {
+      return '생일을 진심으로 축하드립니다!!! \n ${todayDate.year}년 현재 당신의 나이는 $age살 입니다 : )';
     }
 
-    // 생일이 안지났으면 -1, 지났으면 그대로
-    if (dtBirth.month <= todayDate.month && dtBirth.day <= todayDate.day) {
-      age -= 1;
-      bonusAge = 2;
+    // 생일이 지났으면 그대로, 안지났으면 나이 -1
+    if(dtBirth.month >= todayDate.month && dtBirth.day >= todayDate.day) {
+      age = age - bonusAge;
+      bonusAge++;
+      return '다행히도 올해 생일이 아직 오지 않았군요 \n${todayDate.year}년 현재 당신의 나이는 $age살 입니다 : )';
+
     }
+    return '${todayDate.year}년 현재 당신의 나이는 $age살 입니다.\n'
+        '축하드립니다. ${bonusAge == 2 ? '$bonusAge살이나 젊어지셨네요 > <' : '$bonusAge살 젊어지셨네요 : )'}';
 
-    if(age < 0) {
-      age = 0;
-      return '${todayDate.year}년 현재 당신의 나이는 $age살 입니다.';
-
-    } else if(age > 130) {
-      return '생년월일을 확인해주세요 : (';
-    }
-
-    return '${todayDate.year}년 현재 당신의 나이는 $age살 입니다.\n축하드립니다. 라떼보다 ${bonusAge == 2? '$bonusAge살이나 젊어지셨네요 > <' : '$bonusAge살 젊어지셨네요 : )'}';
   }
 
   @override
