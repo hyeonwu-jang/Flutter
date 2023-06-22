@@ -27,6 +27,7 @@ class _RootScreenState extends State<RootScreen> with TickerProviderStateMixin {
         title: Text('만 나이 계산기'),
       ),
       body: TabBarView(
+        physics: NeverScrollableScrollPhysics(),
         controller: controller,
         children: [
           AgeCalculateScreen(),
