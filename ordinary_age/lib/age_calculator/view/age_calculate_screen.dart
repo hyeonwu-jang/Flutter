@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
+import 'package:ordinary_age/common/component/banner_ad_widget.dart';
 
 class AgeCalculateScreen extends StatefulWidget {
   const AgeCalculateScreen({Key? key}) : super(key: key);
@@ -73,6 +74,8 @@ class _AgeCalculateScreenState extends State<AgeCalculateScreen> {
               birth: birth,
               todayDate: todayDate,
             ),
+          Expanded(child: SizedBox()),
+          BannerAdWidget(),
         ],
       ),
     );
@@ -141,7 +144,7 @@ class _DateTranslateText extends StatelessWidget {
     if(dtBirth.month >= todayDate.month && dtBirth.day >= todayDate.day) {
       age = age - bonusAge;
       bonusAge++;
-      return '${todayDate.year}년 현재 당신의 나이는 $age살 입니다. \n생일이신 ${dtBirth.month}월 ${dtBirth.day}일부터 ${age + 1}살 입니다 : )\n\n( 예전 라떼 시절의 나이 : ${age + 2}세 )';
+      return '${todayDate.year}년 현재 당신의 나이는 $age살 입니다. \n생일이신 ${dtBirth.month}월 ${dtBirth.day}일부터 ${age + 1}살 입니다 : )\n\n( 예전 라떼 시절의 내 나이 : ${age + 2}세 )';
 
     }
     return '${todayDate.year}년 현재 당신의 나이는 $age살 입니다 : )\n\n( 예전 라떼 시절의 내 나이 : ${age + 1}세 )';

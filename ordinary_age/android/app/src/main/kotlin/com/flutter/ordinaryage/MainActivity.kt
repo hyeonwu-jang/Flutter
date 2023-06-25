@@ -1,4 +1,4 @@
-package com.example.ordinary_age
+package com.flutter.ordinaryage
 
 import io.flutter.embedding.android.FlutterActivity
 
