@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'a',
       debugShowCheckedModeBanner: false,
-      home:
+      home: Text('a'),
     );
   }
 

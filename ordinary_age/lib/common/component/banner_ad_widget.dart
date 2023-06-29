@@ -17,10 +17,12 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
   void initState() {
     super.initState();
 
+    // 테스트용 광고
     // final adUnitId = Platform.isIOS
     //     ? 'ca-app-pub-3940256099942544/2934735716'
     //     : 'ca-app-pub-3940256099942544/6300978111';
 
+    // 실제 광고
     final adUnitId = Platform.isIOS
         ? 'ca-app-pub-8026751002061219/4700593804'
         : 'ca-app-pub-8026751002061219/6099050350';

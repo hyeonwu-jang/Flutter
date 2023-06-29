@@ -13,7 +13,7 @@ class DefaultLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: title,
+      title: title ?? '제목',
       home: child,
     );
   }
