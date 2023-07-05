@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:my_favorite_restaurant/common/component/custom_text_form_field.dart';
 import 'package:my_favorite_restaurant/common/layout/default_layout.dart';
 
@@ -87,7 +88,9 @@ class LoginScreen extends StatelessWidget {
                       ),
                       SizedBox(width: 16.0),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          context.push("/SignUp");
+                        },
                         child: Text('회원가입'),
                       ),
                     ],
