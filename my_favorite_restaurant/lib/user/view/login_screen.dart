@@ -95,6 +95,13 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+                  SizedBox(height: 16.0),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.kayaking),
+                    ],
+                  ),
                 ],
               ),
             ),
