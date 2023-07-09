@@ -1,6 +1,5 @@
 *.properties
-.a
 
 */build/
 
-./my_favorite_restaurant/lib
+*/lib/
