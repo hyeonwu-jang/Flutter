@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1024236968912",
+    "project_id": "my-fvrt-rstn",
+    "storage_bucket": "my-fvrt-rstn.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1024236968912:android:3a3c931df4ab85be5c37d5",
+        "android_client_info": {
+          "package_name": "com.myfavorite_rstn.my_favorite_restaurant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1024236968912-gamjgd76d7561cb3femdvr3c5dveo90j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6rE3tdFYksmCAqnbQ8DtyL6Sf4vpm8ak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1024236968912-gamjgd76d7561cb3femdvr3c5dveo90j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

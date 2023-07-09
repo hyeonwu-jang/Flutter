@@ -19,6 +19,8 @@ class _App extends StatelessWidget {
       home: RootScreen(),
       theme: ThemeData(
         fontFamily: 'PoorStory',
+        // primaryColor: Color(0xff535b90),
+        primarySwatch: Colors.indigo,
       ),
     );
   }

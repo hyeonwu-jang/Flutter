@@ -24,7 +24,7 @@ class _AgeDdayScreenState extends State<AgeDdayScreen> {
         children: [
           const SizedBox(height: 8.0),
           Text(
-            '각각 숫자 8글자를 입력하고 확인을 눌러주세요',
+            '생년월일과 궁금한 날짜를 입력하고 확인을 눌러주세요',
             style: TextStyle(
               fontSize: 18.0,
             ),
@@ -40,7 +40,7 @@ class _AgeDdayScreenState extends State<AgeDdayScreen> {
                     maxLength: 8,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
-                      label: Text('생년월일'),
+                      label: Text('생년월일 8자리'),
                     ),
                     inputFormatters: [
                       FilteringTextInputFormatter.digitsOnly,
@@ -59,7 +59,7 @@ class _AgeDdayScreenState extends State<AgeDdayScreen> {
                     maxLength: 8,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
-                      label: Text('희망 연월일'),
+                      label: Text('희망 연월일 8자리'),
                     ),
                     inputFormatters: [
                       FilteringTextInputFormatter.digitsOnly,

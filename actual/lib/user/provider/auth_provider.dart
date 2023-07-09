@@ -12,6 +12,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+// 목적 : ChangeNotifierProvider를 사용하여 AuthProvider 클래스의 인스턴스를 생성함.
+// ChangeNotifier 클래스를 상속하는 클래스의 인스턴스를 생성하고 제공함.
+// ChangeNotifier는 상태변경을 감지하고 해당 상태에 대한 알림을 수신하는 기능을 제공함.
+// AuthProvider 클래스가 ChangeNotifier를 상속하고 있으며, ref 매개변수를 사용하여 인스턴스를 생성
+// 즉 AuthProvider를 사용할 때 AuthProvider의 인스턴스를 authProvider를 이용해서 호출함.
 final authProvider = ChangeNotifierProvider<AuthProvider>((ref) {
   return AuthProvider(ref: ref);
 });

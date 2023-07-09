@@ -24,7 +24,8 @@ class _RootScreenState extends State<RootScreen> with TickerProviderStateMixin {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('만 나이 계산기'),
+        // backgroundColor: Color(0xff535b90),
+        title: Text('2023 만나이 계산기'),
       ),
       body: TabBarView(
         physics: NeverScrollableScrollPhysics(),
@@ -35,6 +36,9 @@ class _RootScreenState extends State<RootScreen> with TickerProviderStateMixin {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.indigo,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white38,
         currentIndex: controller!.index,
         onTap: (int index) {
           setState(() {
@@ -46,13 +50,13 @@ class _RootScreenState extends State<RootScreen> with TickerProviderStateMixin {
             icon: Icon(
               Icons.contact_emergency,
             ),
-            label: '지금의 나이',
+            label: '현재의 나이',
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.today,
             ),
-            label: '미래의 나이',
+            label: '과거 또는 미래의 나이',
           ),
         ],
       ),

@@ -1,5 +1,14 @@
 import 'package:flutter/material.dart';
 
+/* 
+  CustomTextFormField 공용 위젯
+  params :
+    ValueChanged onChanged - 값이 변화할 때 처리할 함수,
+    bool obscureText - 비밀번호로 처리 여부,
+    String errorText - 에러 시 텍스트,
+    String hintText - 텍스트폼 설명 문구
+*/
+
 class CustomTextFormField extends StatelessWidget {
   final ValueChanged onChanged;
   final bool obscureText;
@@ -30,13 +39,6 @@ class CustomTextFormField extends StatelessWidget {
             width: 55.0,
           )
         ),
-        // enabledBorder: OutlineInputBorder(  // 기본적으로 보여지는 라인
-        //   borderRadius: BorderRadius.circular(32.0),
-        //   borderSide: BorderSide(
-        //     color: Colors.black,
-        //     width: 1.0
-        //   )
-        // ),
         errorText: errorText,
 
       ),

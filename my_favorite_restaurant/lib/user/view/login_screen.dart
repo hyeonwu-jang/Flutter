@@ -83,13 +83,15 @@ class LoginScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          context.push("/sign_in");
+                        },
                         child: Text('로그인'),
                       ),
                       SizedBox(width: 16.0),
                       ElevatedButton(
                         onPressed: () {
-                          context.push("/SignUp");
+                          context.push("/sign_up");
                         },
                         child: Text('회원가입'),
                       ),
