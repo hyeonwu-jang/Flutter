@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_favorite_restaurant/common/view/splash_screen.dart';
 import 'package:my_favorite_restaurant/firebase_options.dart';
@@ -13,7 +14,11 @@ void main() async {
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-  runApp(MyApp());
+  runApp(
+    ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 final GoRouter _goRouter = GoRouter(
@@ -25,8 +30,8 @@ final GoRouter _goRouter = GoRouter(
         GoRoute(
           path: "add",
           builder: (context, state) => AddRestaurantScreen(),
-        )
-      ]
+        ),
+      ],
     ),
     GoRoute(
       path: "/splash",

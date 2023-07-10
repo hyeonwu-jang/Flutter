@@ -7,6 +7,15 @@ import 'package:actual/user/repository/user_me_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
+// UserModelBase를 반환하는 StateNotifierProvider
+// AuthRepository, UserMeRepository, FlutterSecureStorage를 통해 통합 처리
+
+// AuthRepository : id, pw 입력값으로 로그인 수행, 
+// UserMeRepository : 로그인 정보를 가져옴
+// FlutterSecureStorage : 로그인 수행 및 로그인 정보를 바탕으로 토큰 저장 및 삭제 처리(로그인, 로그아웃 등)
+// 이후 Provider를 통해 외부에서 사용할 수 있도록 state에 UserModelBase를 주입하여 상태를 관리함.
+// 주입할 때는 UserMeRepository를 활용.
+
 final userMeProvider = StateNotifierProvider<UserMeStateNotifier, UserModelBase?>(
   (ref) {
     final authRepository = ref.watch(authRepositoryProvider);
@@ -22,9 +31,9 @@ final userMeProvider = StateNotifierProvider<UserMeStateNotifier, UserModelBase?
 );
 
 class UserMeStateNotifier extends StateNotifier<UserModelBase?> {
-  final AuthRepository authRepository;
-  final UserMeRepository repository;
-  final FlutterSecureStorage storage;
+  final AuthRepository authRepository;  // id, pw를 받아서 로그인 처리하는 repo (refresh token -> access token)
+  final UserMeRepository repository;    // 로그인 후 정보를 가져오는 repo
+  final FlutterSecureStorage storage;   // 토큰 저장용
 
   UserMeStateNotifier({
     required this.authRepository,
@@ -56,7 +65,7 @@ class UserMeStateNotifier extends StateNotifier<UserModelBase?> {
     try {
       state = UserModelLoading();
 
-      final resp = await authRepository.login(
+      final resp = await authRepository.login(    // resp에는 토큰을 들고 있는 LoginResponse 인스턴스가 있음.
         username: username,
         password: password,
       );
