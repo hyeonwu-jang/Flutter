@@ -50,20 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyC6rE3tdFYksmCAqnbQ8DtyL6Sf4vpm8ak',
-    appId: '1:1024236968912:android:3a3c931df4ab85be5c37d5',
-    messagingSenderId: '1024236968912',
-    projectId: 'my-fvrt-rstn',
-    storageBucket: 'my-fvrt-rstn.appspot.com',
+    apiKey: 'AIzaSyD8S9cIKVWBwHVSD_jpgbXWG6hzyi7_8Pc',
+    appId: '1:230789451946:android:6df52511e87d12bb6e80d3',
+    messagingSenderId: '230789451946',
+    projectId: 'my-fvrn-rstnt',
+    storageBucket: 'my-fvrn-rstnt.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAx1jGWBRtyIk9SinJY272SuNi7BDmd8AQ',
-    appId: '1:1024236968912:ios:b87c73cb6358941d5c37d5',
-    messagingSenderId: '1024236968912',
-    projectId: 'my-fvrt-rstn',
-    storageBucket: 'my-fvrt-rstn.appspot.com',
-    iosClientId: '1024236968912-7u8epvrpoa5hsue7npo59r2a94qltotn.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDKGBkZXYAVMThs-MllTnWGdu8f0hGERXo',
+    appId: '1:230789451946:ios:9c573cdb7e7613cc6e80d3',
+    messagingSenderId: '230789451946',
+    projectId: 'my-fvrn-rstnt',
+    storageBucket: 'my-fvrn-rstnt.appspot.com',
+    iosClientId: '230789451946-85d7gt2fhvlid8idegttpps70qn09096.apps.googleusercontent.com',
     iosBundleId: 'com.myfavoriterstn.myFavoriteRestaurant',
   );
 }

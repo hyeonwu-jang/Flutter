@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:my_favorite_restaurant/common/view/splash_screen.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
-  final Listenable
+  final Listenable listenable;
 
   return GoRouter(
     routes: [],

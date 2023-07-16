@@ -35,13 +35,17 @@ class UserMeStateNotifier extends StateNotifier<UserModelBase?> {
   final UserMeRepository repository;    // 로그인 후 정보를 가져오는 repo
   final FlutterSecureStorage storage;   // 토큰 저장용
 
+  // UserMeStateNotifier 인스턴스 생성 시 super()로 부모인 StateNotifier 인스턴스 생성.
+  // 그러나, 위에 제네릭으로 <UserModelBase?> 타입을 받겠다고 선언. 즉, 부모인 StateNotifier 생성 시 UserModelBase 타입을 주입.
+  // super()로 부모인 StateNotifier 생성 시 UserModelBase의 자식 클래스인 UserModelLoading() 전달.
+  // 즉, 자식 클래스를 super() 생성자에 전달하여 StateNotifier의 상태를 구분. 뒤에서 state 변수에 자식 클래스 주입,
   UserMeStateNotifier({
     required this.authRepository,
     required this.repository,
     required this.storage,
-  }) : super(UserModelLoading()) {
+  }) : super(UserModelLoading()) {  // super()를 통해 초기값을 UserModelLoading 인스턴스로 선언.
     // 내 정보 가져오기
-    getMe();
+    getMe();    // state값을 UserModelLoading으로 초기화 후 getMe() 메소드를 실행함. -> 상태에 따라 state의 변경이 예상됨.
   }
 
   Future<void> getMe() async {

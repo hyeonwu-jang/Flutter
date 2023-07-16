@@ -27,7 +27,6 @@ class _RootTabState extends State<RootTab> with SingleTickerProviderStateMixin {
   @override
   void dispose() {
     controller.removeListener(tabListener);
-
     super.dispose();
   }
 

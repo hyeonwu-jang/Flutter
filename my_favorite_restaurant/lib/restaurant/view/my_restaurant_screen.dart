@@ -10,7 +10,7 @@ class MyRestaurantScreen extends StatelessWidget {
     return DefaultLayout(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          context.push("/add");
+          context.push("/main/add");
         },
         child: Icon(Icons.add),
       ),

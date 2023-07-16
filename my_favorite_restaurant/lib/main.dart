@@ -10,9 +10,9 @@ import 'package:my_favorite_restaurant/user/view/login_screen.dart';
 import 'package:my_favorite_restaurant/user/view/sign_up_screen.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();  // 메인 함수에서 비동기 함수를 사용할 수 있도록 해주는 코드.
 
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);  // 파이어베이스 초기화
 
   runApp(
     ProviderScope(
@@ -25,6 +25,10 @@ final GoRouter _goRouter = GoRouter(
   routes: [
     GoRoute(
       path: "/",
+      builder: (context, state) => LoginScreen(),
+    ),
+    GoRoute(
+      path: "/main",
       builder: (context, state) => RootTab(),
       routes: [
         GoRoute(
