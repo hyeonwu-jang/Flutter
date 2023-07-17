@@ -14,12 +14,14 @@ class CustomTextFormField extends StatelessWidget {
   final bool obscureText;
   final String? errorText;
   final String? hintText;
+  final VoidCallback? onTap;
 
   const CustomTextFormField({
     required this.onChanged,
     this.obscureText = false,
     this.errorText,
     this.hintText,
+    this.onTap,
     Key? key}) : super(key: key);
 
   @override
@@ -43,6 +45,7 @@ class CustomTextFormField extends StatelessWidget {
 
       ),
       onChanged: onChanged,
+      onTap: onTap,
     );
   }
 }
