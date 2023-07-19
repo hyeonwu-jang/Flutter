@@ -1,12 +1,13 @@
 *.properties
 */build/
 */lib/
-./data
+
 
 .env
 
-my_favorite_restaurant
-shelter
+data/
+my_favorite_restaurant/
+shelter/
 
 google-services.json
 firebase_options.dart
