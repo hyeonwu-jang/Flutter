@@ -5,8 +5,8 @@
 
 .env
 
-./my_favorite_restaurant/*
-./shelter/*
+my_favorite_restaurant
+shelter
 
 google-services.json
 firebase_options.dart
